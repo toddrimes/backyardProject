@@ -31,7 +31,7 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
-  
+  /*Auth*/
   'get /login': 'AuthController.login',
   'get /logout': 'AuthController.logout',
   'get /register': 'AuthController.register',
@@ -41,18 +41,18 @@ module.exports.routes = {
   
   'get /auth/:provider': 'AuthController.provider',
   'get /auth/:provider/callback': 'AuthController.callback',
-
-  '/': {
-    view: 'homepage'
-  },
   
-  '/about': {
-    view: 'about'
-  },
+  /*Chat*/
+  'post /room/:roomId/users': 'RoomController.join',
+  'delete /room/:roomId/users': 'RoomController.leave',
   
-  '/test': {
-    view: 'test'
-  }
+  /*Globals*/
+  'get /': 'MainController.index',
+  
+  'get /about': 'MainController.about',
+  'get /chat': 'MainController.chat',
+  
+  'get /test': 'MainController.test'
 
   /***************************************************************************
   *                                                                          *

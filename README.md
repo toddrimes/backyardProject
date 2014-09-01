@@ -14,6 +14,10 @@ A [Sails](http://sailsjs.org) application. Tries to get all the techs I usually 
 - User system
 - menu in a partial template for page style normal (not homepage)
 
+# IN PROGRESS
+
+- Chat app
+
 # TODO
 
 - Chat app : cf https://github.com/balderdashy/sailsChat

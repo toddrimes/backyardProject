@@ -24,7 +24,13 @@ module.exports.sockets = {
   onConnect: function(session, socket) {
 
     // By default, do nothing.
+    
+    if (session.passport) {
 
+        if (session.passport.user && socket.id) {
+
+            sails.io.sockets.emit('hello', {userID : session.passport.user});                       }
+    }
   },
 
 

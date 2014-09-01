@@ -17,3 +17,9 @@ block main
             = local
         p
           = title
+        if(!req.isAuthenticated())
+          p Non connecté
+        else
+          p Connecté comme 
+            span
+              = req.user.username
