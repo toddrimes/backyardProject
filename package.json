@@ -1,8 +1,8 @@
 {
   "name": "backyardProject",
   "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
+  "version": "0.0.1",
+  "description": "A Sails application. Tries to get all the techs I usually get from scratch for every projects.",
   "keywords": [],
   "dependencies": {
     "ejs": "~0.8.4",
@@ -17,13 +17,23 @@
     "grunt-contrib-uglify": "~0.4.0",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-sails-linker": "~0.9.5",
+    "grunt-bower": "*",
     "grunt-sync": "~0.0.4",
     "include-all": "~0.1.3",
     "jade": "^1.5.0",
     "marked": "^0.3.2",
     "rc": "~0.5.0",
     "sails": "~0.10.5",
-    "sails-disk": "~0.10.0"
+    "sails-disk": "~0.10.0",
+    "passport": "*",
+    "passport-facebook": "*",
+    "passport-github": "*",
+    "passport-google": "*",
+    "passport-local": "*",
+    "passport-twitter": "*",
+    "validator": "*",
+    "bcrypt": "*",
+    "sails-generate-auth": "*"
   },
   "scripts": {
     "start": "node app.js",
@@ -32,8 +42,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/ubuntu/backyardProject.git"
+    "url": "git://github.com/julienfroidefond/backyardProject"
   },
-  "author": "ubuntu",
+  "author": "_jull_",
   "license": ""
 }

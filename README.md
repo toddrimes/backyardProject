@@ -19,3 +19,13 @@ A [Sails](http://sailsjs.org) application. Tries to get all the techs I usually 
 - Chat app : cf https://github.com/balderdashy/sailsChat
 - CMS system
 - Test passport for the providers non local; but it requires key and I think it's working with no extra needs
+
+
+# GIT
+
+https://github.com/julienfroidefond/backyardProject
+
+Rappels :
+- git add .
+- git commit -m 'MyComment'
+- git push
