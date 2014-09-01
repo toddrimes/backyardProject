@@ -1,0 +1,17 @@
+- var url=req.originalUrl
+- var menus = [{name:'Home',url:'/'},{name:'Login',url:'/login'},{name:'Register',url:'/register'},{name:'About',url:'/about'},{name:'Test',url:'/test'}]
+if(url != '/')
+    .navbar.navbar-default(role="navigation")
+        .container
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='/') Backyard template
+          .collapse.navbar-collapse
+            ul.nav.navbar-nav
+              for i in menus
+                li(class=((url==i.url)?'active':''))
+                  a(href=i.url)=i.name
+                

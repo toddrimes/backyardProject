@@ -1,0 +1,32 @@
+extend ../layout
+
+append css
+    style.
+        body {
+            background-color: #333;
+            background-image: url('http://static.flavors.me/dynamic_images/background/0c614db85ff84ee3a9ee0a6c0aa8c8ba');
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+block main
+    
+    .container
+        form.form-signin(action='/auth/local/register', method='post', role='form')
+            if(!req.isAuthenticated())
+                for error in errors
+                    p.alert.alert-danger
+                        =  __(error)
+                h2.form-signin-heading Créer un compte
+                input.form-control(type="text", name="username", placeholder="Nom d'utilisateur", autofocus="autofocus")
+                input.form-control(type="email", name='email', placeholder="Email")
+                input.form-control(type="password", name='password', placeholder="Mot de passe")
+                button.btn.btn-lg.btn-primary.btn-block(type="submit") Créer
+            else
+                h2.form-signin-heading(action='/auth/local', method='post', role='form') You're logged in
+                hr
+                a.btn.btn-lg.btn-primary.btn-block(href="/") Back
+                
+      

@@ -1,0 +1,52 @@
+
+  
+extend ./layout
+
+block append css
+  style.
+    html,
+    body {
+      height: 100%;
+      background-color: #333;
+      background-image: url('http://static.flavors.me/dynamic_images/background/0c614db85ff84ee3a9ee0a6c0aa8c8ba');
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    body {
+      color: #fff;
+      text-align: center;
+      text-shadow: 0 1px 3px rgba(0,0,0,.5);
+      box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+    }
+
+block main
+  .site-wrapper
+    .site-wrapper-inner
+      .cover-container
+        .masthead.clearfix
+          .inner
+            h3.masthead-brand Back Yard template 
+            ul.nav.masthead-nav
+              li.active
+                a(href='#') Home
+              li
+                a(href='./login') Login
+              li
+                a(href='./register') Register
+              li
+                a(href='./about') A propos
+        .inner.cover
+          h1.cover-heading Backyard template pour Sails 0.10.
+          p.lead
+            | Template de départ pour l'environnement sails 0.10 sous nodejs.<br/>
+            | Inclus un tas de choses nécessaires avant de faire un projet
+          p.lead
+            a.btn.btn-lg.btn-default(href='./about') A propos
+        .mastfoot
+          .inner
+            p
+            | By 
+            a(href='https://twitter.com/_jull_') @_jull_
+            | .

@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title= title
+
+    // Viewport mobile tag for sensible mobile support
+    meta(name="viewport",content="width=device-width, initial-scale=1, maximum-scale=1")
+
+    // STYLES
+    link(rel="stylesheet", href="/styles/importer.css")
+    // STYLES END
+    
+    block css
+    
+  
+  body
+    
+    include ./mainMenu.jade
+  
+    block main
+
+    // The linker searches for this tag and adds js.  If there's no linker, we point to sails.io.js
+    // SCRIPTS
+    script(src="/js/dependencies/sails.io.js")
+    script(src="/js/bootstrap/bootstrap.min.js")
+    script(src="/js/jquery/jquery.min.js")
+    script(src="/js/underscore/underscore-min.js")
+    // SCRIPTS END
+

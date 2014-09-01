@@ -1,0 +1,41 @@
+extend ../layout
+
+append css
+    style.
+        body {
+            background-color: #333;
+            background-image: url('http://static.flavors.me/dynamic_images/background/0c614db85ff84ee3a9ee0a6c0aa8c8ba');
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+block main
+    .container
+        form.form-signin(action='/auth/local', method='post', role='form')
+            if(!req.isAuthenticated())
+                for error in errors
+                    p.alert.alert-danger
+                        =  __(error)
+                h2.form-signin-heading S'identifier
+                input.form-control(type="text", name="identifier", placeholder="Addresse Email", autofocus="autofocus")
+                input.form-control(type="password", name='password', placeholder="Mot de passe")
+                label.checkbox
+                    input(type="checkbox", value="remember-me")
+                    | Se souvenir de moi
+                button.btn.btn-lg.btn-primary.btn-block(type="submit") Se connecter
+                hr
+                p Si vous n'avez pas de compte, vous pouvez vous connecter avec :
+                ul.nav.navbar-nav
+                    li
+                        a(href='/register') Créer un compte local
+                    for p in providers
+                        li
+                            a(href='/auth/'+p.slug)
+                                = p.name
+                hr
+                p Attnetion les key des API ne sont pas encore renseignées.
+            else
+                h2.form-signin-heading(action='/auth/local', method='post', role='form') You're logged in
+                hr
+                a.btn.btn-lg.btn-primary.btn-block(href="/") Back

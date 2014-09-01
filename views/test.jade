@@ -1,0 +1,19 @@
+extend layout
+
+block main
+    // Wrap all page content here
+    #wrap
+      // Fixed navbar
+      
+      // Begin page content
+      .container
+        .page-header
+          h1 Testing
+        h2 locals
+        p 
+          = res.locals
+        for local in res.locals
+          p 
+            = local
+        p
+          = title

@@ -1,0 +1,27 @@
+{
+  "name": "backyardProject",
+  "version": "0.0.1",
+  "dependencies": {
+    "bootstrap": "~3.0.0",
+    "jquery": "~1.10.2",
+    "underscore": "*"
+  },
+  "exportsOverride": {
+      "jquery": {
+        "js": "jquery.min.js"
+      },
+      "bootstrap": {
+        "js": "dist/js/bootstrap.min.js",
+        "styles": "**/*.less",
+        "fonts": "dist/fonts/*.*"
+      },
+      "underscore": {
+        "js": "underscore.min.js"
+      },
+      "*": {
+        "js": "**/*.js",
+        "styles": "**/*.css",
+        "styles": "**/*.less"
+      }
+  }
+}
