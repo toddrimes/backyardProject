@@ -23,7 +23,7 @@ A [Sails](http://sailsjs.org) application. Tries to get all the techs I usually 
 # IN PROGRESS
 
 - Chat app : cf https://github.com/balderdashy/sailsChat
-- 
+
 # TODO
 
 - CMS system
@@ -38,3 +38,8 @@ Rappels :
 - git add .
 - git commit -m 'MyComment'
 - git push
+
+# Cloud 9
+
+- https://sails_0_10-c9-julienfroidefond.c9.io
+- Run with backyardProject/app.js
