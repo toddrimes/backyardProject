@@ -32,18 +32,6 @@ module.exports.sockets = {
           User.findOne({id: session.passport.user}).exec(function findOneCB(err,user){
             sails.io.sockets.emit('hello', user);
          
-            // Create the session.users hash if it doesn't exist already
-            session.users = session.users || {};
-            
-            // Save this user in the session, indexed by their socket ID.
-            // This way we can look the user up by socket ID later.
-            session.users[socketId] = user;
-    
-            // Persist the session
-            session.save();
-            
-            // TODO !
-            
             // Subscribe the connected socket to custom messages regarding the user.
             // While any socket subscribed to the user will receive messages about the
             // user changing their name or being destroyed, ONLY this particular socket
@@ -59,7 +47,7 @@ module.exports.sockets = {
     
     
             // Publish this user creation event to every socket watching the User model via User.watch()
-            User.publishCreate(user, socket);
+            //User.publishCreate(user, socket);
             
           });
          

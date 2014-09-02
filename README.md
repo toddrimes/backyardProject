@@ -19,15 +19,13 @@ A [Sails](http://sailsjs.org) application. Tries to get all the techs I usually 
 - MainController for pages globals. If or not accessible logged is action : hasToBeAuth or global.
 - resolve asset problems : reordering in layout doesn't work. : Suppression of //scripts in layout.jade
 - including file js front chat when needed only
-
-# IN PROGRESS
-
 - Chat app : cf https://github.com/balderdashy/sailsChat
 
 # TODO
 
 - CMS system
 - Test passport for the providers non local; but it requires key and I think it's working with no extra needs
+- debug chat app : users count in rooms is wrong. In database it seems also wrong
 
 
 # GIT
