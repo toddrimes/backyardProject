@@ -13,14 +13,19 @@ A [Sails](http://sailsjs.org) application. Tries to get all the techs I usually 
 - Passport Inclusion
 - User system
 - menu in a partial template for page style normal (not homepage)
+- run policy on https://sails_0_10-c9-julienfroidefond.c9.io/chat. Try to access non logged and you'll see 403 by policy.
+- set toc in config, consumate both in mainmenu and homepage. Jade : - var tocEntries = sails.config.toc.getTocEntries(req, res);. It construct a menu differently if you're home page and/or logged in.
+- Resolve bug : if a view is called not by a controller passport doesn't work because no user in session ; we don't pass by the policy.
+- MainController for pages globals. If or not accessible logged is action : hasToBeAuth or global.
+- resolve asset problems : reordering in layout doesn't work. : Suppression of //scripts in layout.jade
+- including file js front chat when needed only
 
 # IN PROGRESS
 
-- Chat app
-
+- Chat app : cf https://github.com/balderdashy/sailsChat
+- 
 # TODO
 
-- Chat app : cf https://github.com/balderdashy/sailsChat
 - CMS system
 - Test passport for the providers non local; but it requires key and I think it's working with no extra needs
 

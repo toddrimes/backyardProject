@@ -49,10 +49,10 @@ module.exports.routes = {
   /*Globals*/
   'get /': 'MainController.index',
   
-  'get /about': 'MainController.about',
-  'get /chat': 'MainController.chat',
+  'get /about': 'MainController.render',
+  'get /chat': 'MainController.renderIfAuth',
   
-  'get /test': 'MainController.test'
+  'get /test': 'MainController.render'
 
   /***************************************************************************
   *                                                                          *

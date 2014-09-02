@@ -1,5 +1,5 @@
 - var url=req.originalUrl
-- var menus = [{name:'Home',url:'/'},{name:'Login',url:'/login'},{name:'Register',url:'/register'},{name:'About',url:'/about'},{name:'Chat app',url:'/chat'},{name:'Test',url:'/test'}]
+- var tocEntries = sails.config.toc.getTocEntries(req, res);
 if(url != '/')
     .navbar.navbar-default(role="navigation")
         .container
@@ -11,7 +11,7 @@ if(url != '/')
             a.navbar-brand(href='/') Backyard template
           .collapse.navbar-collapse
             ul.nav.navbar-nav
-              for i in menus
+              for i in tocEntries
                 li(class=((url==i.url)?'active':''))
                   a(href=i.url)=i.name
                 

@@ -26,10 +26,45 @@ module.exports.sockets = {
     // By default, do nothing.
     
     if (session.passport) {
-
         if (session.passport.user && socket.id) {
-
-            sails.io.sockets.emit('hello', {userID : session.passport.user});                       }
+          var socketId = sails.sockets.id(socket);
+          
+          User.findOne({id: session.passport.user}).exec(function findOneCB(err,user){
+            sails.io.sockets.emit('hello', user);
+         
+            // Create the session.users hash if it doesn't exist already
+            session.users = session.users || {};
+            
+            // Save this user in the session, indexed by their socket ID.
+            // This way we can look the user up by socket ID later.
+            session.users[socketId] = user;
+    
+            // Persist the session
+            session.save();
+            
+            // TODO !
+            
+            // Subscribe the connected socket to custom messages regarding the user.
+            // While any socket subscribed to the user will receive messages about the
+            // user changing their name or being destroyed, ONLY this particular socket
+            // will receive "message" events.  This allows us to send private messages
+            // between users.
+            User.subscribe(socket, user, 'message');
+    
+            // Get updates about users being created
+            User.watch(socket);
+    
+            // Get updates about rooms being created
+            Room.watch(socket);
+    
+    
+            // Publish this user creation event to every socket watching the User model via User.watch()
+            User.publishCreate(user, socket);
+            
+          });
+         
+         
+        }
     }
   },
 

@@ -22,6 +22,8 @@ block append css
     }
 
 block main
+  - var url=req.originalUrl
+  - var tocEntries = sails.config.toc.getTocEntries(req, res);
   .site-wrapper
     .site-wrapper-inner
       .cover-container
@@ -29,14 +31,10 @@ block main
           .inner
             h3.masthead-brand Back Yard template 
             ul.nav.masthead-nav
-              li.active
-                a(href='#') Home
-              li
-                a(href='./login') Login
-              li
-                a(href='./register') Register
-              li
-                a(href='./about') A propos
+              for i in tocEntries
+                li(class=((url==i.url)?'active':''))
+                  a(href=i.url)=i.name
+                
         .inner.cover
           h1.cover-heading Backyard template pour Sails 0.10.
           p.lead

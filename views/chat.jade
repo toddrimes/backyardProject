@@ -4,19 +4,22 @@ extend ./layout
 block main
     if(req.isAuthenticated())
         #main.container
-            div
-                | My name: <input type="text" id="my-name"> <button id="update-name">Update</button>
+            h1 My name: 
+            input#my-name.form-control(type="text" value=user.username)
+            button#update-name Update
             h1 Users online
             div
-                | <select id="users-list" size="5"></select>
-                | <button id="private-msg-button">Send private message to selected user</button>
-                | <div id="convos"></div>
+                select#users-list
+                div
+                    button#private-msg-button.btn.btn-primary Send private message to selected user
+                #convos
             h1 Chat rooms
             div
-                | <select id="rooms-list" size="5"></select>
-                | <button id="join-room">Join selected room</button>
-                | <button id="new-room">Start a new room</button>
-                | <div id="rooms"></div>
+                select#rooms-list
+                div
+                    button#join-room.btn.btn-primary Join selected room
+                    button#new-room.btn.btn-primary Start a new room
+                #rooms
         div#disconnect(style="display:none") Waiting for reconnect...
     else
         #main.container

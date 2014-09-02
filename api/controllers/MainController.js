@@ -9,14 +9,13 @@ module.exports = {
 	'index': function(req, res, next) {
 		res.view('homepage.jade');
 	},
-	'about': function(req, res, next) {
-		res.view('about.jade');
+	'renderIfAuth': function(req, res, next) {
+		var url=req.originalUrl;
+		res.view(url.split('/')[1]+'.jade');
 	},
-	'chat': function(req, res, next) {
-		res.view('chat.jade');
-	},
-	'test': function(req, res, next) {
-		res.view('test.jade');
+	'render': function(req, res, next) {
+		var url=req.originalUrl;
+		res.view(url.split('/')[1]+'.jade');
 	}
 };
 

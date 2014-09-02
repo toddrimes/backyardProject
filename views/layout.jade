@@ -20,11 +20,13 @@ html
     block main
 
     // The linker searches for this tag and adds js.  If there's no linker, we point to sails.io.js
-    // SCRIPTS
+    - var url=req.originalUrl
+    
     script(src="/js/dependencies/sails.io.js")
-    script(src="/js/backyard.js")
-    script(src="/js/bootstrap/bootstrap.min.js")
-    script(src="/js/jquery/jquery.min.js")
     script(src="/js/underscore/underscore-min.js")
-    // SCRIPTS END
+    script(src="/js/jquery/jquery.min.js")
+    script(src="/js/bootstrap/bootstrap.min.js")
+    if(url == '/chat')
+      script(src="/js/backyard-chat.js")
+
 
