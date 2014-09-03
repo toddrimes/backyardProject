@@ -1,25 +1,30 @@
 extend layout
 
 block main
-    // Wrap all page content here
     #wrap
-      // Fixed navbar
-      
-      // Begin page content
       .container
         .page-header
           h1 Testing
         h2 locals
-        p 
-          = res.locals
-        for local in res.locals
+        div
           p 
-            = local
-        p
-          = title
-        if(!req.isAuthenticated())
-          p Non connecté
-        else
-          p Connecté comme 
-            span
-              = req.user.username
+            = 'locals function source ::: '+res.locals
+          for local in res.locals
+            p 
+              = local
+          p
+            = title
+            
+        h2 Connexion
+        div
+          if(!req.isAuthenticated())
+            p Non connecté
+          else
+            p Connecté comme 
+              span
+                = req.user.username
+                
+        h2 
+          | Users and connected state (only if connected)
+        div
+          #usersListConnected

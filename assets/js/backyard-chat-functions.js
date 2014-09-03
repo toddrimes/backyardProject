@@ -132,10 +132,19 @@ function removeUser(user) {
 
 // Add multiple users to the users list.
 function updateUserList(users) {
+  var cpt = 0;
   users.forEach(function(user) {
-    if (user.id == window.me.id) {return;}
-    addUser(user);
+    //console.log(user);
+    if(user != null){
+      if (user.id == window.me.id) {return;}
+      addUser(user);
+      cpt++;
+    }
   });
+  if(cpt==0)
+    $('#users-list').html('<option value="none">Personne (fantome)</option>');
+  else
+    $('#users-list option[value=none]').delete();
 }
 
 /*Utils.js*/

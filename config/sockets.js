@@ -9,7 +9,7 @@
  * For more information on sockets configuration, including advanced config options, see:
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.sockets.html
  */
-
+var global_usersAuthList = [];
 module.exports.sockets = {
 
   /***************************************************************************
@@ -30,7 +30,7 @@ module.exports.sockets = {
           var socketId = sails.sockets.id(socket);
           
           User.findOne({id: session.passport.user}).exec(function findOneCB(err,user){
-            sails.io.sockets.emit('hello', user);
+            sails.sockets.emit(socketId, 'hello', user);
          
             // Subscribe the connected socket to custom messages regarding the user.
             // While any socket subscribed to the user will receive messages about the
@@ -44,10 +44,16 @@ module.exports.sockets = {
     
             // Get updates about rooms being created
             Room.watch(socket);
-    
-    
+            
             // Publish this user creation event to every socket watching the User model via User.watch()
-            //User.publishCreate(user, socket);
+            User.publishCreate(user,socket);
+            
+            
+            //Accumulation des connexions
+            global_usersAuthList[user.id] = user
+            
+            //Broadcast des users connectés
+            sails.sockets.blast('usersAuthList', global_usersAuthList);
             
           });
          
@@ -64,8 +70,32 @@ module.exports.sockets = {
   *                                                                          *
   ***************************************************************************/
   onDisconnect: function(session, socket) {
+    
+    //Suppression du user courant dans la liste des users connectés on disconnect socket
+    if(session.passport && session.passport.user){
+      global_usersAuthList[session.passport.user]=null;
+      sails.sockets.blast('usersAuthList', global_usersAuthList);
+      
+      try {
+        // Look up the user ID using the connected socket
+        var userId = session.passport.user;
 
-    // By default: do nothing.
+        //Eject current user from his rooms
+        User.findOne({id:userId}).populate('rooms').exec(function(err,user){
+            if(user.rooms){
+              sails.util.each(user.rooms, function(room) {
+                user.rooms.remove(room.id);
+              });
+               user.save(console.log);
+            }
+        });
+        
+      } catch (e) {
+        console.log("Error in onDisconnect: ", e);
+      }
+    }
+    
+    
   },
 
 

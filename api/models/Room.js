@@ -25,7 +25,6 @@ module.exports = {
 
     },
 
-
     // Add an "afterPublishRemove" to continue processing after
     // a user is removed from a room.  Doing it this way ensures
     // this code will be run whether the "publishRemove" call was

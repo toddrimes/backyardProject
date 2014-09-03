@@ -20,10 +20,14 @@ A [Sails](http://sailsjs.org) application. Tries to get all the techs I usually 
 - resolve asset problems : reordering in layout doesn't work. : Suppression of //scripts in layout.jade
 - including file js front chat when needed only
 - Chat app : cf https://github.com/balderdashy/sailsChat
+- Chat app : list of connected user become only connected instead of all users
+- Chat app : leave room on socket disconnect
 
 # TODO
 
+- Study generator to do chatApp like a module (sails generate chatApp)
 - CMS system
+- Bad front end to change by an MVVM system on Chat app. (review the architecture)
 - Test passport for the providers non local; but it requires key and I think it's working with no extra needs
 - debug chat app : users count in rooms is wrong. In database it seems also wrong
 
@@ -41,3 +45,4 @@ Rappels :
 
 - https://sails_0_10-c9-julienfroidefond.c9.io
 - Run with backyardProject/app.js
+- Run in a terminal grunt watch (app.js don't do it unlike sails lift)

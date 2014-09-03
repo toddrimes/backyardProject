@@ -4,7 +4,8 @@
   "dependencies": {
     "bootstrap": "~3.0.0",
     "jquery": "~1.10.2",
-    "underscore": "*"
+    "underscore": "*",
+    "knockout" : "*"
   },
   "exportsOverride": {
       "jquery": {
@@ -17,6 +18,9 @@
       },
       "underscore": {
         "js": "underscore.min.js"
+      },
+      "knockout": {
+        "js": "dist/knockout.js"
       },
       "*": {
         "js": "**/*.js",
