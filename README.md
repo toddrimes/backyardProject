@@ -22,6 +22,8 @@ A [Sails](http://sailsjs.org) application. Tries to get all the techs I usually 
 - Chat app : cf https://github.com/balderdashy/sailsChat
 - Chat app : list of connected user become only connected instead of all users
 - Chat app : leave room on socket disconnect
+- moving toc from config to service
+- Testing generators
 
 # TODO
 

@@ -1,5 +1,5 @@
 - var url=req.originalUrl
-- var tocEntries = sails.config.toc.getTocEntries(req, res);
+- var tocEntries = tocService.getTocEntries(req, res);
 if(url != '/')
     .navbar.navbar-default(role="navigation")
         .container

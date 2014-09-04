@@ -23,7 +23,7 @@ block append css
 
 block main
   - var url=req.originalUrl
-  - var tocEntries = sails.config.toc.getTocEntries(req, res);
+  - var tocEntries = tocService.getTocEntries(req, res);
   .site-wrapper
     .site-wrapper-inner
       .cover-container
