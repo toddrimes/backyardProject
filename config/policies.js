@@ -60,6 +60,11 @@ module.exports.policies = {
 		// (this overrides `false` above)
 		renderIfAuth	: ['passport','ifAuthenticated']
 		
+	},
+	
+	AdminController: {
+    '*': 'passport',
+    render: ["passport", "ifAuthenticated", "isAdmin"]
 	}
 	
 };

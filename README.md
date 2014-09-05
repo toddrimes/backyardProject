@@ -24,6 +24,8 @@ A [Sails](http://sailsjs.org) application. Tries to get all the techs I usually 
 - Chat app : leave room on socket disconnect
 - moving toc from config to service
 - Testing generators
+- Admin user automlatically creates at sails lift (cf bootstrap.js and userUtilities)
+- Generate a file at the root to see the admin identifiers (adminIdentifiers.md)
 
 # TODO
 
@@ -31,7 +33,6 @@ A [Sails](http://sailsjs.org) application. Tries to get all the techs I usually 
 - CMS system
 - Bad front end to change by an MVVM system on Chat app. (review the architecture)
 - Test passport for the providers non local; but it requires key and I think it's working with no extra needs
-- debug chat app : users count in rooms is wrong. In database it seems also wrong
 
 
 # GIT

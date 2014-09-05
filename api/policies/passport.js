@@ -29,6 +29,9 @@ module.exports = function (req, res, next) {
       // Make the user available throughout the frontend
       res.locals.user = req.user;
       
+      req.session.isAdmin = false;
+      if(req.user.username == 'admin')  req.session.isAdmin == true;
+      
       next();
     });
   });
